@@ -5,6 +5,10 @@ const Home = () => {
     return (
         <div>
             <img className='img-fluid' src={banner} alt="" />
+            <div className='inventory-items-container'>
+                <h1>Inventory Items</h1>
+
+            </div>
         </div>
     );
 };

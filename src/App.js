@@ -3,6 +3,8 @@ import Header from './Pages/Shared/Header/Header';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Blogs from './Pages/Blogs/Blogs';
+import Login from './Pages/Authentication/Login/Login';
+import AddItems from './Pages/AddItems/AddItems';
 
 function App () {
   return (
@@ -12,8 +14,9 @@ function App () {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
-        <Route path='/login' element=''></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element=''></Route>
+        <Route path='/add-items' element={<AddItems></AddItems>}></Route>
         <Route path='/*' element=''></Route>
         {/* <Route path='/manage' element=''></Route>
         <Route path='' element=''></Route>
