@@ -3,8 +3,8 @@ import Header from './Pages/Shared/Header/Header';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Blogs from './Pages/Blogs/Blogs';
-import Login from './Pages/Authentication/Login/Login';
 import AddItems from './Pages/AddItems/AddItems';
+import Login from './Pages/Authentication/Login/Login';
 
 function App () {
   return (

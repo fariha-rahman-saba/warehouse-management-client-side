@@ -1,6 +1,5 @@
-import { Button } from 'bootstrap';
 import React, { useRef } from 'react';
-import { Form, ToastContainer } from 'react-bootstrap';
+import { Form, ToastContainer, Button } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -67,8 +66,8 @@ const Login = () => {
 
 
     return (
-        <div className='container w-50 mx-auto'>
-            <h2 className='text-secondary text-center mt-3 mb-3'>Please Login</h2>
+        <div className='container w-50 mx-auto mt-5'>
+            <h2 className='text-center mb-5'>Login</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3 w-50 mx-auto" controlId="formBasicEmail">
                     <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
@@ -84,8 +83,8 @@ const Login = () => {
                 {errorElement}
             </div>
             <div className='text-center mt-2'>
-                <p>New to Book Mania? <Link to="/signup" className='text-primary pe-auto text-decoration-none' onClick={navigateSignup}>Please Signup</Link> </p>
-                <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
+                <p>New to Book Mania? <Link to="/signup" className=' pe-auto text-decoration-none text-secondary' onClick={navigateSignup}>Signup</Link> </p>
+                <p>Forget Password?<button className='btn btn-link text-secondary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button></p>
             </div>
             <SocialLogin></SocialLogin>
             <ToastContainer />
