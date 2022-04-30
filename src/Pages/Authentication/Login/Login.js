@@ -39,7 +39,7 @@ const Login = () => {
         errorElement = <p className='text-danger'>Error: {error?.message}</p>;
     }
 
-    const handleSubmit = event => {
+    const handleLogin = event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
@@ -47,10 +47,6 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     };
 
-    // for navigating to signup page
-    const navigateSignup = event => {
-        navigate('/signup');
-    };
 
     // for reseting password
     const resetPassword = async () => {
@@ -68,7 +64,7 @@ const Login = () => {
     return (
         <div className='container w-50 mx-auto mt-5'>
             <h2 className='text-center mb-5'>Login</h2>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3 w-50 mx-auto" controlId="formBasicEmail">
                     <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
                 </Form.Group>
@@ -83,7 +79,7 @@ const Login = () => {
                 {errorElement}
             </div>
             <div className='text-center mt-2'>
-                <p>New to Book Mania? <Link to="/signup" className=' pe-auto text-decoration-none text-secondary' onClick={navigateSignup}>Signup</Link> </p>
+                <p>New to Book Mania? <Link to="/signup" className=' pe-auto text-decoration-none text-secondary' >Signup</Link> </p>
                 <p>Forget Password?<button className='btn btn-link text-secondary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button></p>
             </div>
             <SocialLogin></SocialLogin>
