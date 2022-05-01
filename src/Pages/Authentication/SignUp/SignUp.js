@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import React, { useRef } from 'react';
 import { Button, Form, ToastContainer } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -25,9 +24,6 @@ const SignUp = () => {
     // Navigation
     const navigate = useNavigate();
 
-    const navigateLogin = () => {
-        navigate('/login');
-    };
 
     if (loading || updating) {
         return <Loading></Loading>;
