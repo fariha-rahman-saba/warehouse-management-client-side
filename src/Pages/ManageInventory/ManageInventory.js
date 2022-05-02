@@ -9,10 +9,10 @@ const ManageInventory = () => {
 
     return (
         <div>
-            <h1 className='text-center mt-5'>Items</h1>
+            <h1 className='text-center mt-5'>Inventory Items</h1>
             <div className='items'>
                 {
-                    items.map(item => <SingleItem key={item.id} item={item}></SingleItem>)
+                    items.map(item => <SingleItem key={item._id} item={item}></SingleItem>)
                 }
             </div>
         </div>

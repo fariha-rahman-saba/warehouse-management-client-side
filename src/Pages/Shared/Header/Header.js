@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Container, Dropdown, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -15,7 +15,7 @@ const Header = () => {
     };
 
     return (
-        <div>
+        <div className=''>
             <Navbar bg="light" expand="lg">
                 <Container>
                     <Navbar.Brand as={Link} to='/'>Book Mania</Navbar.Brand>
