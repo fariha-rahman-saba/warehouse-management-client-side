@@ -11,14 +11,32 @@ const AddItems = () => {
         event.preventDefault();
 
         const imgUrl = event.target.imgUrl.value;
-        const productName = event.target.productName.value;
+        const itemName = event.target.itemName.value;
         const desc = event.target.desc.value;
         const price = event.target.price.value;
         const quantity = event.target.quantity.value;
         const supplierName = event.target.supplierName.value;
         const sold = event.target.sold.value;
 
-        console.log(imgUrl, productName, desc, price, quantity, supplierName, sold);
+        console.log(imgUrl, itemName, desc, price, quantity, supplierName, sold);
+
+        const url = 'http://localhost:5000/addItems';
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                imgUrl, itemName, desc, price, quantity, supplierName, sold
+            }),
+            headers: {
+                'authorization': `${user.email}`,
+                'Content-type': 'application/json',
+
+            },
+        }).then((res) => res.json())
+            .then(data => {
+                console.log(data);
+                event.target.reset();
+            });
     };
 
     return (
@@ -29,7 +47,7 @@ const AddItems = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicItemName">
-                    <Form.Control type="text" name='productName' placeholder="Product Name" />
+                    <Form.Control type="text" name='itemName' placeholder="Product Name" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicDescription">
@@ -53,7 +71,7 @@ const AddItems = () => {
                 </Form.Group>
 
                 <Button className='secondary w-50 mx-auto d-block mb-2' type="submit">
-                    Submit
+                    Upload Item
                 </Button>
             </Form>
         </div>
