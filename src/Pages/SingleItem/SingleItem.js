@@ -10,7 +10,7 @@ const SingleItem = ({ item }) => {
     const navigate = useNavigate();
 
     const goToItemDetails = _id => {
-        navigate(`/manage-inventory/${_id}`);
+        navigate(`/inventory/${_id}`);
     };
 
     return (

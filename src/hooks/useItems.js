@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 const useItems = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch('courses.json')
+        const url = `http://localhost:4000/items`;
+        fetch()
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SingleItem from '../SingleItem/SingleItem';
 import useItems from '../../hooks/useItems';
 import './ManageInventory.css';
@@ -6,6 +6,11 @@ import './ManageInventory.css';
 const ManageInventory = () => {
 
     const [items, setItems] = useItems();
+    useEffect(() => {
+        fetch('http://localhost:4000/items')
+            .then(res => res.json())
+            .then(data => setItems(data));
+    }, []);
 
     return (
         <div>

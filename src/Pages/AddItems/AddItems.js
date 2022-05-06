@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
@@ -18,62 +17,57 @@ const AddItems = () => {
         const supplierName = event.target.supplierName.value;
         const sold = event.target.sold.value;
 
+
         console.log(imgUrl, itemName, desc, price, quantity, supplierName, sold);
 
-        const url = 'http://localhost:5000/addItems';
+        const url = 'http://localhost:4000/add-items';
+        const item = { imgUrl, itemName, desc, price, quantity, supplierName, sold };
+        // event.target.reset();
+
 
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify({
-                imgUrl, itemName, desc, price, quantity, supplierName, sold
-            }),
+            body: JSON.stringify(item),
             headers: {
                 'authorization': `${user.email}`,
                 'Content-type': 'application/json',
 
             },
-        }).then((res) => res.json())
-            .then(data => {
-                console.log(data);
-                event.target.reset();
+        }).then(res => res.json())
+            .then(result => {
+                console.log(result);
             });
     };
 
     return (
         <div className='container w-50 mx-auto mt-5'>
-            <Form onSubmit={handleUpload}>
-                <Form.Group className="mb-3" controlId="formBasicImgUrl">
-                    <Form.Control type="text" name='imgUrl' placeholder="Image URL" />
-                </Form.Group>
+            <form onSubmit={handleUpload}>
+                <div className="form-group mt-3">
+                    <input type="text" name='imgUrl' className="form-control" placeholder="Image URL" />
+                </div>
+                <div className="form-group mt-3">
+                    <input type="text" className="form-control" name='itemName' placeholder="Item Name" />
+                </div>
+                <div className="form-group mt-3">
+                    <input type="text" className="form-control" name='desc' placeholder="Short Description" />
+                </div>
+                <div className="form-group mt-3">
+                    <input type="text" className="form-control" name='price' placeholder="Price" />
+                </div>
+                <div className="form-group mt-3">
+                    <input type="text" className="form-control" name='quantity' placeholder="Quantity" />
+                </div>
+                <div className="form-group mt-3">
+                    <input type="text" className="form-control" name='supplierName' placeholder="Supplier Name" />
+                </div>
 
-                <Form.Group className="mb-3" controlId="formBasicItemName">
-                    <Form.Control type="text" name='itemName' placeholder="Product Name" />
-                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicDescription">
-                    <Form.Control type="text" name='desc' placeholder="Description" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPrice">
-                    <Form.Control type="text" name='price' placeholder="Price" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicQuantity">
-                    <Form.Control type="text" name='quantity' placeholder="Quantity" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicSupplierName">
-                    <Form.Control type="text" name='supplierName' placeholder="Supplier name" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" name='sold' label="Sold" />
-                </Form.Group>
-
-                <Button className='secondary w-50 mx-auto d-block mb-2' type="submit">
-                    Upload Item
-                </Button>
-            </Form>
+                <div className="form-check mt-3 d-flex ">
+                    <input type="checkbox" className="form-check-input " id="exampleCheck1" name='sold' />
+                    <label className="form-check-label  " for="exampleCheck1">Sold</label>
+                </div>
+                <button type="submit" className="btn btn-secondary mt-3 w-100">Add Item</button>
+            </form>
         </div>
     );
 };
