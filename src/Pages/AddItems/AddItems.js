@@ -52,10 +52,10 @@ const AddItems = () => {
                     <input type="text" className="form-control" name='desc' placeholder="Short Description" />
                 </div>
                 <div className="form-group mt-3">
-                    <input type="text" className="form-control" name='price' placeholder="Price" />
+                    <input type="number" className="form-control" name='price' placeholder="Price" />
                 </div>
                 <div className="form-group mt-3">
-                    <input type="text" className="form-control" name='quantity' placeholder="Quantity" />
+                    <input type="number" className="form-control" name='quantity' placeholder="Quantity" />
                 </div>
                 <div className="form-group mt-3">
                     <input type="text" className="form-control" name='supplierName' placeholder="Supplier Name" />

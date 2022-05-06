@@ -7,8 +7,10 @@ const ItemDetails = () => {
 
     useEffect(() => {
         const url = `http://localhost:4000/items/${itemId}`;
-        fetch(url).then(res => res.json())
-            .then(data => setItem(data));
+        console.log(url);
+        fetch(url)
+            .then(res => res.json())
+            .then(data => console.log(data));
     }, []);
 
     return (
