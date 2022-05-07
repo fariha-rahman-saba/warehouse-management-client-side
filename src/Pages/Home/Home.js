@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useItems from '../../hooks/useItems';
 import banner from '../../images/banner.jpg';
 import SingleItem from '../SingleItem/SingleItem';
 import './Home.css';
 
 const Home = () => {
-    const [items] = useItems();
-    const displayItems = items.slice(3);
+    const [items, setItems] = useItems();
+
+    // useEffect(() => {
+    //     fetch('http://localhost:4000/items')
+    //         .then(res => res.json())
+    //         .then(data => setItems(data));
+    // }, []);
+
+    console.log("items: ", items);
+    const displayItems = items.slice(6);
+    // console.log(displayItems);
 
     return (
         <div>

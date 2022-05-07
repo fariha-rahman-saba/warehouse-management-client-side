@@ -11,6 +11,7 @@ import RequireAuth from './pages/Authentication/RequireAuth/RequireAuth';
 import NotFound from './pages/NotFound/NotFound';
 import MyItems from './pages/MyItems/MyItems';
 import ItemDetails from './pages/ItemDetails/ItemDetails';
+import Footer from './pages/Shared/Footer/Footer';
 
 function App () {
   return (
@@ -28,11 +29,12 @@ function App () {
         <Route path='/add-items' element={<RequireAuth><AddItems></AddItems></RequireAuth>}></Route>
         <Route path='/manage-inventory' element={<RequireAuth><ManageInventory></ManageInventory></RequireAuth>}></Route>
         <Route path='/my-items' element={<RequireAuth><MyItems></MyItems></RequireAuth>}></Route>
-        <Route path='/manage-inventory/:itemId' element={<ItemDetails></ItemDetails>}></Route>
-        <Route path='/inventory/:itemId' element={<ItemDetails></ItemDetails>}></Route>
+        {/* <Route path='/manage-inventory/:itemId' element={<ItemDetails></ItemDetails>}></Route> */}
+        <Route path='/inventory/:itemId' element={<RequireAuth><ItemDetails></ItemDetails></RequireAuth>}></Route>
 
 
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

@@ -1,0 +1,10 @@
+.item {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    margin: 40px;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

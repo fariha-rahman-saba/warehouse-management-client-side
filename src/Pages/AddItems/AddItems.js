@@ -9,20 +9,20 @@ const AddItems = () => {
     const handleUpload = (event) => {
         event.preventDefault();
 
-        const imgUrl = event.target.imgUrl.value;
-        const itemName = event.target.itemName.value;
-        const desc = event.target.desc.value;
+        const image = event.target.image.value;
+        const name = event.target.name.value;
+        const short_desc = event.target.short_desc.value;
         const price = event.target.price.value;
         const quantity = event.target.quantity.value;
         const supplierName = event.target.supplierName.value;
         const sold = event.target.sold.value;
 
 
-        console.log(imgUrl, itemName, desc, price, quantity, supplierName, sold);
+        console.log(image, name, short_desc, price, quantity, supplierName, sold);
 
         const url = 'http://localhost:4000/add-items';
-        const item = { imgUrl, itemName, desc, price, quantity, supplierName, sold };
-        // event.target.reset();
+        const item = { image, name, short_desc, price, quantity, supplierName, sold };
+
 
 
         fetch(url, {
@@ -30,12 +30,13 @@ const AddItems = () => {
             body: JSON.stringify(item),
             headers: {
                 'authorization': `${user.email}`,
-                'Content-type': 'application/json',
+                'Content-type': 'application/json; charset=UTF-8',
 
             },
         }).then(res => res.json())
             .then(result => {
                 console.log(result);
+                event.target.reset();
             });
     };
 
@@ -43,13 +44,13 @@ const AddItems = () => {
         <div className='container w-50 mx-auto mt-5'>
             <form onSubmit={handleUpload}>
                 <div className="form-group mt-3">
-                    <input type="text" name='imgUrl' className="form-control" placeholder="Image URL" />
+                    <input type="text" name='image' className="form-control" placeholder="Image URL" />
                 </div>
                 <div className="form-group mt-3">
-                    <input type="text" className="form-control" name='itemName' placeholder="Item Name" />
+                    <input type="text" className="form-control" name='name' placeholder="Item Name" />
                 </div>
                 <div className="form-group mt-3">
-                    <input type="text" className="form-control" name='desc' placeholder="Short Description" />
+                    <input type="text" className="form-control" name='short_desc' placeholder="Short description" />
                 </div>
                 <div className="form-group mt-3">
                     <input type="number" className="form-control" name='price' placeholder="Price" />

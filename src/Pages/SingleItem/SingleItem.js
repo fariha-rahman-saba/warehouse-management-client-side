@@ -25,3 +25,7 @@ const SingleItem = ({ item }) => {
 };
 
 export default SingleItem;
+
+// {
+    // items.map(item => <SingleItem key={item._id} item={item}></SingleItem>)
+// }
