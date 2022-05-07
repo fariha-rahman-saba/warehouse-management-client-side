@@ -18,7 +18,7 @@ const AddItems = () => {
         const sold = event.target.sold.value;
 
 
-        console.log(image, name, short_desc, price, quantity, supplierName, sold);
+        // console.log(image, name, short_desc, price, quantity, supplierName, sold);
 
         const url = 'http://localhost:4000/add-items';
         const item = { image, name, short_desc, price, quantity, supplierName, sold };
