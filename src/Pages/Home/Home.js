@@ -27,6 +27,9 @@ const Home = () => {
                 }
             </div>
 
+            <h1>About Us</h1>
+            <h1>Privacy Policy</h1>
+
         </div>
     );
 };
