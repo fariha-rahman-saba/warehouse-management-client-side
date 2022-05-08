@@ -2,14 +2,30 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import './SingleManageInventoryItem.css';
+import useItems from '../../hooks/useItems';
 
 const SingleManageInventoryItem = ({ item }) => {
-    const { image, name, price, supplierName, quantity } = item;
-    const handleDelete = (id) => {
+    // const [items, setItems] = useItems();
+    const { _id, image, name, price, supplierName, quantity } = item;
 
+    const handleDelete = (id) => {
+        const proceed = window.confirm("Confirm Delete?");
+        if (proceed) {
+            const url = `http://localhost:4000/items${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        console.log("deteted successfully");
+                        // const remainingItems = items.filter(item => item._id !== id);
+                        // setItems(remainingItems);
+                    }
+                });
+        }
     };
     return (
-        <div className="container">
+        <div className="inventory-container">
             <div className='item'>
                 <img src={image} alt="" />
                 <div className='item-details-container'>
@@ -22,12 +38,11 @@ const SingleManageInventoryItem = ({ item }) => {
 
 
                     <div className="delete-container">
-                        <button className='delete-button'>
+                        <button onClick={() => handleDelete(_id)} className='delete-button'>
                             <FontAwesomeIcon className='delete-icon text-dark' icon={faTrash}></FontAwesomeIcon>
                         </button>
                     </div>
                 </div>
-                {/* onClick={() => handleDelete(product)} */}
             </div>
         </div>
     );

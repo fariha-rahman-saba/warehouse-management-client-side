@@ -45,7 +45,7 @@ const AddItems = () => {
     };
 
     return (
-        <div className='container w-50 mx-auto mt-5'>
+        <div className='w-50 mt-5 mx-auto'>
             <form onSubmit={handleUpload}>
                 <div className="form-group mt-3">
                     <input type="text" name='image' className="form-control" placeholder="Image URL" />

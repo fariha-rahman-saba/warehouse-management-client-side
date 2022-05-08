@@ -14,7 +14,7 @@ const SingleItem = ({ item }) => {
     };
 
     return (
-        <div className='item'>
+        <div className='single-item'>
             <img src={image} alt="" width="200px" height="130px" />
             <h4 className='mt-3'>{name}</h4>
             <p>{short_desc}</p>

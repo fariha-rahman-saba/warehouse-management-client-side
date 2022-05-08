@@ -1,8 +1,17 @@
 import useItems from '../../hooks/useItems';
 import './ManageInventory.css';
 import SingleManageInventoryItem from '../SingleManageInventoryItem/SingleManageInventoryItem';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const ManageInventory = () => {
+
+    const navigate = useNavigate();
+
+    const goToAddItems = () => {
+        navigate(`/add-items/`);
+    };
+
     const [items, setItems] = useItems();
 
     return (
@@ -14,6 +23,7 @@ const ManageInventory = () => {
 
                 }
             </div>
+            <Button variant="warning" className='mb-5 w-25' onClick={() => goToAddItems()}>Add New Item</Button>
         </div>
 
     );

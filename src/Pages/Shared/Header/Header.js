@@ -32,9 +32,9 @@ const Header = () => {
                                 <>
                                     <Nav.Link className='text-dark' as={Link} to='/add-items'>Add Items</Nav.Link>
 
-                                    <Nav.Link className='text-dark' as={Link} to='/my-items'>My Items</Nav.Link>
+                                    <Nav.Link className='text-dark' as={Link} to='/my-items'>My items</Nav.Link>
 
-                                    <Nav.Link className='text-dark' as={Link} to='/manage-inventory'>Manage Inventory</Nav.Link>
+                                    <Nav.Link className='text-dark' as={Link} to='/manage-inventory'>Manage Items</Nav.Link>
 
                                     {/* {user.displayName} */}
 
