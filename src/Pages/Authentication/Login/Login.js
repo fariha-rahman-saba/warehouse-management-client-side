@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
-import { Form, ToastContainer, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -36,7 +37,7 @@ const Login = () => {
     }
 
     if (error) {
-        errorElement = <p className='text-danger'>Error: {error?.message}</p>;
+        errorElement = <p className='text-danger'>{error?.message}</p>;
     }
 
     const handleLogin = event => {
@@ -51,12 +52,15 @@ const Login = () => {
     // for reseting password
     const resetPassword = async () => {
         const email = emailRef.current.value;
+        // console.log("button clicked");
+        // console.log(email);
         if (email) {
             await sendPasswordResetEmail(email);
             toast('Email Sent');
+            console.log("email sent");
         }
         else {
-            toast('please enter your email address');
+            toast('Please enter your email');
         }
     };
 
@@ -83,7 +87,7 @@ const Login = () => {
                 <p>Forget Password?<button className='btn btn-link text-secondary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button></p>
             </div>
             <SocialLogin></SocialLogin>
-            <ToastContainer />
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

@@ -28,9 +28,9 @@ const Home = () => {
 
             <Button variant="warning" className='mb-5 w-25' onClick={() => goToManageInventory()}>Manage Inventory</Button>
 
-
+            <h1>User's Feedback</h1>
             <h1>About Us</h1>
-            <h1>Privacy Policy</h1>
+
 
         </div>
     );
