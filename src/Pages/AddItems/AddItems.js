@@ -22,7 +22,7 @@ const AddItems = () => {
 
         // console.log(image, name, short_desc, price, quantity, supplierName, sold);
 
-        const url = 'http://localhost:4000/add-items';
+        const url = 'https://mighty-beach-81550.herokuapp.com/add-items';
         const item = { email, image, name, short_desc, price, quantity, supplierName, sold: soldInfo };
 
 

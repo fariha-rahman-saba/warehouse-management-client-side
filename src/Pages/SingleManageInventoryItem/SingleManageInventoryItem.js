@@ -12,7 +12,7 @@ const SingleManageInventoryItem = ({ item }) => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Confirm Delete?");
         if (proceed) {
-            const url = `http://localhost:4000/items${id}`;
+            const url = `https://mighty-beach-81550.herokuapp.com/items${id}`;
             fetch(url, {
                 method: 'DELETE'
             }).then(res => res.json())

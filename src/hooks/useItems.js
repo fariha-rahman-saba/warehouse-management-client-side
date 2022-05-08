@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const useItems = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:4000/items`;
+        const url = `https://mighty-beach-81550.herokuapp.com/items`;
         fetch(url)
             .then(res => res.json())
             .then(data => setItems(data));

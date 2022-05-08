@@ -29,7 +29,10 @@ const Home = () => {
             <Button variant="warning" className='mb-5 w-25' onClick={() => goToManageInventory()}>Manage Inventory</Button>
 
             <h1>User's Feedback</h1>
-            <h1>About Us</h1>
+            <div className='about-us'>
+                <h1>About Us</h1>
+                <p>Book Mania is an online book inventory management system. Here we have more than 25000 variety of books. You can find here books of different countries different cultures. From classical books to new books you can find every book here. It is like an encyclopedia of books.</p>
+            </div>
 
 
         </div>
