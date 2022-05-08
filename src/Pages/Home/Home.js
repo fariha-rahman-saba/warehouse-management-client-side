@@ -25,9 +25,9 @@ const Home = () => {
                     displayItems.map(item => <SingleItem key={item._id} item={item}></SingleItem>)
                 }
             </div>
-            <div>
-                <Button variant="secondary" onClick={() => goToManageInventory()}>Manage Inventory</Button>
-            </div>
+
+            <Button variant="warning" className='mb-5 w-25' onClick={() => goToManageInventory()}>Manage Inventory</Button>
+
 
             <h1>About Us</h1>
             <h1>Privacy Policy</h1>
