@@ -1,11 +1,10 @@
-import React from 'react';
-import { ToastContainer } from 'react-bootstrap';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const AddItems = () => {
-
+    const [sold, setSold] = useState(false);
     const [user, loading, error] = useAuthState(auth);
 
     const handleUpload = (event) => {
@@ -17,14 +16,14 @@ const AddItems = () => {
         const price = event.target.price.value;
         const quantity = event.target.quantity.value;
         const supplierName = event.target.supplierName.value;
-        const sold = event.target.sold.value;
+        const soldInfo = sold;
         const email = user.email;
 
 
         // console.log(image, name, short_desc, price, quantity, supplierName, sold);
 
         const url = 'http://localhost:4000/add-items';
-        const item = { email, image, name, short_desc, price, quantity, supplierName, sold };
+        const item = { email, image, name, short_desc, price, quantity, supplierName, sold: soldInfo };
 
 
 
@@ -68,8 +67,8 @@ const AddItems = () => {
 
 
                 <div className="form-check mt-3 d-flex ">
-                    <input type="checkbox" className="form-check-input " id="exampleCheck1" name='sold' />
-                    <label className="form-check-label  " for="exampleCheck1">Sold</label>
+                    <input className='mt-2 me-2' onClick={() => setSold(!sold)} type="checkbox" name="sold" />
+                    <div>Sold</div>
                 </div>
                 <button type="submit" className="btn btn-secondary mt-3 w-100 mb-5">Add Item</button>
                 <ToastContainer></ToastContainer>

@@ -7,13 +7,12 @@ import './ItemDetails.css';
 
 const ItemDetails = () => {
     const [user, loading, error] = useAuthState(auth);
+    const { itemId } = useParams();
     const url = `http://localhost:4000/items/${itemId}`;
 
-    const { itemId } = useParams();
     const [item, setItem] = useState({});
 
     useEffect(() => {
-
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data));
@@ -81,7 +80,7 @@ const ItemDetails = () => {
     };
 
     return (
-        <div className='item'>
+        <div className='item-details'>
             <img src={item.img} alt="" width="200px" height="130px" />
             <h4 className='mt-3'>Item name: {item.name}</h4>
             <p>Description: {item.short_desc}</p>

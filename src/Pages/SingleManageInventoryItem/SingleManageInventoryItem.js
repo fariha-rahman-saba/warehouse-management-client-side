@@ -3,6 +3,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import './SingleManageInventoryItem.css';
 import useItems from '../../hooks/useItems';
+import { toast, ToastContainer } from 'react-toastify';
 
 const SingleManageInventoryItem = ({ item }) => {
     // const [items, setItems] = useItems();
@@ -17,7 +18,8 @@ const SingleManageInventoryItem = ({ item }) => {
             }).then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        console.log("deteted successfully");
+                        console.log("item deleted");
+                        // toast("Item deteted");
                         // const remainingItems = items.filter(item => item._id !== id);
                         // setItems(remainingItems);
                     }
@@ -42,8 +44,10 @@ const SingleManageInventoryItem = ({ item }) => {
                             <FontAwesomeIcon className='delete-icon text-dark' icon={faTrash}></FontAwesomeIcon>
                         </button>
                     </div>
+                    <ToastContainer></ToastContainer>
                 </div>
             </div>
+
         </div>
     );
 };
