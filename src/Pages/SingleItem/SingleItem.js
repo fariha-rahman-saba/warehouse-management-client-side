@@ -19,13 +19,9 @@ const SingleItem = ({ item }) => {
             <h4 className='mt-3'>{name}</h4>
             <p>{short_desc}</p>
             <h5>{price}</h5>
-            <Button onClick={() => goToItemDetails(_id)}>Update Item</Button>
+            <Button variant="secondary" onClick={() => goToItemDetails(_id)}>Update Stock</Button>
         </div>
     );
 };
 
 export default SingleItem;
-
-// {
-    // items.map(item => <SingleItem key={item._id} item={item}></SingleItem>)
-// }

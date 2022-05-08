@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import useItems from '../../hooks/useItems';
 import banner from '../../images/banner.jpg';
 import SingleItem from '../SingleItem/SingleItem';
 import './Home.css';
 
 const Home = () => {
-    const [items, setItems] = useItems();
+    const [items] = useItems();
 
-    // useEffect(() => {
-    //     fetch('http://localhost:4000/items')
-    //         .then(res => res.json())
-    //         .then(data => setItems(data));
-    // }, []);
+    const displayItems = items.slice(0, 6);
+    const navigate = useNavigate();
 
-    console.log("items: ", items);
-    const displayItems = items.slice(6);
-    // console.log(displayItems);
+    const goToManageInventory = () => {
+        navigate(`/manage-inventory/`);
+    };
 
     return (
         <div>
@@ -25,6 +24,9 @@ const Home = () => {
                 {
                     displayItems.map(item => <SingleItem key={item._id} item={item}></SingleItem>)
                 }
+            </div>
+            <div>
+                <Button variant="secondary" onClick={() => goToManageInventory()}>Manage Inventory</Button>
             </div>
 
             <h1>About Us</h1>

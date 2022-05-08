@@ -1,5 +1,7 @@
 import React from 'react';
+import { ToastContainer } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const AddItems = () => {
@@ -16,12 +18,13 @@ const AddItems = () => {
         const quantity = event.target.quantity.value;
         const supplierName = event.target.supplierName.value;
         const sold = event.target.sold.value;
+        const email = user.email;
 
 
         // console.log(image, name, short_desc, price, quantity, supplierName, sold);
 
         const url = 'http://localhost:4000/add-items';
-        const item = { image, name, short_desc, price, quantity, supplierName, sold };
+        const item = { email, image, name, short_desc, price, quantity, supplierName, sold };
 
 
 
@@ -29,7 +32,7 @@ const AddItems = () => {
             method: 'POST',
             body: JSON.stringify(item),
             headers: {
-                'authorization': `${user.email}`,
+                // 'authorization': `${user.email}`,
                 'Content-type': 'application/json; charset=UTF-8',
 
             },
@@ -37,6 +40,7 @@ const AddItems = () => {
             .then(result => {
                 console.log(result);
                 event.target.reset();
+                toast('Item Added');
             });
     };
 
@@ -56,7 +60,7 @@ const AddItems = () => {
                     <input type="number" className="form-control" name='price' placeholder="Price" />
                 </div>
                 <div className="form-group mt-3">
-                    <input type="number" className="form-control" name='quantity' placeholder="Quantity" />
+                    <input type="number" className="form-control" name='quantity' placeholder="Quantity" required />
                 </div>
                 <div className="form-group mt-3">
                     <input type="text" className="form-control" name='supplierName' placeholder="Supplier Name" />
@@ -67,7 +71,9 @@ const AddItems = () => {
                     <input type="checkbox" className="form-check-input " id="exampleCheck1" name='sold' />
                     <label className="form-check-label  " for="exampleCheck1">Sold</label>
                 </div>
-                <button type="submit" className="btn btn-secondary mt-3 w-100">Add Item</button>
+                <button type="submit" className="btn btn-secondary mt-3 w-100 mb-5">Add Item</button>
+                <ToastContainer></ToastContainer>
+                {/* onClick={toast('Email sent')} */}
             </form>
         </div>
     );
