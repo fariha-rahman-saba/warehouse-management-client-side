@@ -5,7 +5,7 @@ import './SingleItem.css';
 
 const SingleItem = ({ item }) => {
 
-    const { _id, name, short_desc, price, image } = item;
+    const { _id, name, short_desc, price, image, quantity } = item;
 
     const navigate = useNavigate();
 
@@ -19,6 +19,7 @@ const SingleItem = ({ item }) => {
             <h4 className='mt-3'>{name}</h4>
             <p>{short_desc}</p>
             <h5>{price}</h5>
+            <h5>{quantity}</h5>
             <Button variant="secondary" onClick={() => goToItemDetails(_id)}>Update Stock</Button>
         </div>
     );

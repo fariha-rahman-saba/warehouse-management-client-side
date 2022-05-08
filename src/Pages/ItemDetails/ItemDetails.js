@@ -7,12 +7,13 @@ import './ItemDetails.css';
 
 const ItemDetails = () => {
     const [user, loading, error] = useAuthState(auth);
+    const url = `http://localhost:4000/items/${itemId}`;
 
     const { itemId } = useParams();
     const [item, setItem] = useState({});
-    const url = `http://localhost:4000/items/${itemId}`;
 
     useEffect(() => {
+
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data));
