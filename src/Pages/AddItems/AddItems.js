@@ -73,7 +73,7 @@ const AddItems = () => {
                 </div>
                 <button type="submit" className="btn btn-secondary mt-3 w-100 mb-5">Add Item</button>
                 <ToastContainer></ToastContainer>
-                {/* onClick={toast('Email sent')} */}
+
             </form>
         </div>
     );

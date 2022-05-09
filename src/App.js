@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound/NotFound';
 import MyItems from './pages/MyItems/MyItems';
 import ItemDetails from './pages/ItemDetails/ItemDetails';
 import Footer from './pages/Shared/Footer/Footer';
+import Subscribe from './pages/Subscribe/Subscribe';
 
 function App () {
   return (
@@ -23,14 +24,16 @@ function App () {
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/subscribe' element={<Subscribe></Subscribe>}></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
+
 
         {/* Private routes */}
         <Route path='/add-items' element={<RequireAuth><AddItems></AddItems></RequireAuth>}></Route>
         <Route path='/manage-inventory' element={<RequireAuth><ManageInventory></ManageInventory></RequireAuth>}></Route>
         <Route path='/my-items' element={<RequireAuth><MyItems></MyItems></RequireAuth>}></Route>
-        {/* <Route path='/manage-inventory/:itemId' element={<ItemDetails></ItemDetails>}></Route> */}
         <Route path='/inventory/:itemId' element={<RequireAuth><ItemDetails></ItemDetails></RequireAuth>}></Route>
+
 
 
       </Routes>

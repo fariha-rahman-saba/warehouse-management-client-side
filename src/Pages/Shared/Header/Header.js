@@ -21,6 +21,7 @@ const Header = () => {
                     <Navbar.Brand as={Link} to='/'>Book Mania</Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
+                        <Nav.Link className='text-dark' as={Link} to='/subscribe'>Subscribe!</Nav.Link>
                         <Nav.Link className='text-dark' as={Link} to='/'>Home</Nav.Link>
                         <Nav.Link className='text-dark' as={Link} to='/blogs'>Blogs</Nav.Link>
 
