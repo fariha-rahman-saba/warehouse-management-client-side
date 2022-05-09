@@ -1,5 +1,5 @@
 # Book Mania Website
-### live website link: 
+### live website link: https://book-inventory-568ec.web.app/
 ***
 ## Technologies:
 A list of technologies used within the project:
@@ -8,11 +8,7 @@ A list of technologies used within the project:
 * [JavaScript]: Version ES6
 * [React]: Version 18.0.0
 * [React-Router]
-* [node.js]
-* [express.js]
-* [mongodb]
 * [Firebase]
-* [Heroku]
 ***
 ## Details:
 * In this project I have created a online book inventory management system website
@@ -24,3 +20,5 @@ A list of technologies used within the project:
 * In manage inventory page we can see all the iventory items delete items and add new items and 
 * I have also created a page for view a specific item in detail. In this page we can restock our items.
 * In my items page we can see all the items added by the user. Here he/she can delete any item.
+* There is a page called subscribe where anyone can subscribe for newsletters.
+* In subscribe route anyone can subscribe for newsletter.
