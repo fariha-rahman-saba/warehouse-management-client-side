@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import useItems from '../../hooks/useItems';
-import SingleItem from '../SingleItem/SingleItem';
+import SingleManageInventoryItem from '../SingleManageInventoryItem/SingleManageInventoryItem';
+import './MyItems.css';
+
 
 const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -17,10 +18,11 @@ const MyItems = () => {
     }, []);
 
     return (
-        <div className='my-items-container'>
+        <div className='my-items-container mt-5'>
             {
-                myItems.map(item => <SingleItem key={item._id} item={item}></SingleItem>)
+                myItems.map(item => <SingleManageInventoryItem key={item._id} item={item}></SingleManageInventoryItem>)
             }
+
         </div>
     );
 };

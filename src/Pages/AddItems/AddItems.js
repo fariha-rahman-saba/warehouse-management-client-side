@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
 
 const AddItems = () => {
@@ -22,7 +23,7 @@ const AddItems = () => {
 
         // console.log(image, name, short_desc, price, quantity, supplierName, sold);
 
-        const url = 'https://mighty-beach-81550.herokuapp.com/add-items';
+        const url = 'http://localhost:4000/add-items';
         const item = { email, image, name, short_desc, price, quantity, supplierName, sold: soldInfo };
 
 
