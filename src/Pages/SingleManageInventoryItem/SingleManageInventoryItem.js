@@ -28,7 +28,7 @@ const SingleManageInventoryItem = ({ item }) => {
         }
     };
     return (
-        <div className="inventory-container">
+        <div className='mt-5'>
             <div className='item-container'>
                 <img src={image} alt="" />
                 <div className='item-details-container'>

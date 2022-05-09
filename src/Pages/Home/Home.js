@@ -17,10 +17,10 @@ const Home = () => {
     };
 
     return (
-        <div>
+        <div className='home-container'>
             <img className='img-fluid' src={banner} alt="" />
             <h1 className='mt-5'>Inventory Items</h1>
-            <div className='inventory-items-container'>
+            <div className='home-inventory-items-container'>
                 {
                     displayItems.map(item => <SingleItem key={item._id} item={item}></SingleItem>)
                 }

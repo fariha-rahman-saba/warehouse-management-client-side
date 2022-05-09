@@ -80,7 +80,7 @@ const ItemDetails = () => {
     };
 
     return (
-        <div className='item-details'>
+        <div className='item-details mx-auto'>
             <img src={item.img} alt="" width="200px" height="130px" />
             <h4 className='mt-3'>Item name: {item.name}</h4>
             <p>Description: {item.short_desc}</p>

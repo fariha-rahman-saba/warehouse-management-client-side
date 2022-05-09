@@ -48,22 +48,22 @@ const AddItems = () => {
         <div className='w-50 mt-5 mx-auto'>
             <form onSubmit={handleUpload}>
                 <div className="form-group mt-3">
-                    <input type="text" name='image' className="form-control" placeholder="Image URL" />
+                    <input type="text" name='image' className="form-control" placeholder="Image URL" required />
                 </div>
                 <div className="form-group mt-3">
-                    <input type="text" className="form-control" name='name' placeholder="Item Name" />
+                    <input type="text" className="form-control" name='name' placeholder="Item Name" required />
                 </div>
                 <div className="form-group mt-3">
-                    <input type="text" className="form-control" name='short_desc' placeholder="Short description" />
+                    <input type="text" className="form-control" name='short_desc' placeholder="Short description" required />
                 </div>
                 <div className="form-group mt-3">
-                    <input type="number" className="form-control" name='price' placeholder="Price" />
+                    <input type="text" className="form-control" name='price' placeholder="Price" required />
                 </div>
                 <div className="form-group mt-3">
                     <input type="number" className="form-control" name='quantity' placeholder="Quantity" required />
                 </div>
                 <div className="form-group mt-3">
-                    <input type="text" className="form-control" name='supplierName' placeholder="Supplier Name" />
+                    <input type="text" className="form-control" name='supplierName' placeholder="Supplier Name" required />
                 </div>
 
 

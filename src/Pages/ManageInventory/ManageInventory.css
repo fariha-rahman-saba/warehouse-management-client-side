@@ -1,12 +1,14 @@
-.items {
+.manage-inventory-items {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px☻;
+    justify-content: space-around;
 }
 
 /* for mobile phones */
 @media only screen and (max-width:576px) {
-    .items {
+    .manage-inventory-items {
         grid-template-columns: repeat(1, 1fr);
     }
 
@@ -15,7 +17,7 @@
 /* for tablets */
 
 @media only screen and (min-width: 577px) and (max-width: 992px) {
-    .items {
+    .manage-inventory-items {
         grid-template-columns: repeat(2, 1fr);
     }
 }

@@ -16,14 +16,14 @@ const ManageInventory = () => {
 
     return (
         <div>
-            <h1 className='text-center mt-5'>Inventory Items</h1>
-            <div className='items'>
+            <h1 className='mt-5 mb-3'>Inventory Items</h1>
+            <div className='manage-inventory-items '>
                 {
                     items.map(item => <SingleManageInventoryItem key={item._id} item={item}></SingleManageInventoryItem>)
 
                 }
             </div>
-            <Button variant="warning" className='mb-5 w-25' onClick={() => goToAddItems()}>Add New Item</Button>
+            <Button variant="warning" className='mt-5 mb-5 w-25' onClick={() => goToAddItems()}>Add New Item</Button>
         </div>
 
     );

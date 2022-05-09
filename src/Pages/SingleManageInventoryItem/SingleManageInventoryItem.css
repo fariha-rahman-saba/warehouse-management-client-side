@@ -1,20 +1,20 @@
-.inventory-container {
+/* .inventory-container {
     overflow: hidden;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     /* text-align: center; */
-    /* justify-content: center; */
-    /* align-items: center; */
+/* justify-content: center; */
+/* align-items: center; */
 
-}
+/* } */
 
 .item-container {
     border: 1px solid #95A0A7;
     border-radius: 8px;
     padding: 8px;
-    margin: 10px;
+    margin: auto;
     display: flex;
-    width: 100%;
+    width: 400px;
     justify-content: space-around;
 }
 

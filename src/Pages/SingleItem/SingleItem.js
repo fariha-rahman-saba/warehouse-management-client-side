@@ -15,13 +15,13 @@ const SingleItem = ({ item }) => {
 
     return (
         <div className='single-item'>
-            <img src={image} alt="" width="200px" height="130px" />
-            <h4 className='mt-3'>Item Name: {name}</h4>
-            <p>Description: {short_desc}</p>
-            <h5>Price: {price}</h5>
-            <h5>Quantity: {quantity}</h5>
-            <h5>Sold: {sold ? "Sold" : "In Stock"}</h5>
-            <Button variant="secondary" onClick={() => goToItemDetails(_id)}>Update Stock</Button>
+            <img src={image} alt="" width="200px" height="200px" />
+            <h4 className='mt-3'>{name}</h4>
+            <p>{short_desc}</p>
+            <h6>Price: {price}</h6>
+            <h6>Quantity: {quantity}</h6>
+            <h6>Status: {sold ? "Sold" : "In Stock"}</h6>
+            <Button variant="secondary" className='mt-2 mb-3' onClick={() => goToItemDetails(_id)}>Update Stock</Button>
         </div>
     );
 };
