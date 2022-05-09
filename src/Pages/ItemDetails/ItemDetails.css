@@ -9,3 +9,37 @@
     padding-right: 10px;
     width: 800px;
 }
+
+/* for mobile phones */
+@media only screen and (max-width:576px) {
+    .item-details {
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        margin: 40px;
+        padding-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+}
+
+/* for tablets */
+
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+    .item-details {
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        margin: 40px;
+        padding-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+        overflow: hidden;
+    }
+}

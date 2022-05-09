@@ -11,7 +11,7 @@ const Subscribe = () => {
     return (
         <div>
             <div className='w-50 mt-5 mx-auto'>
-                <h1 className='mb-3'>Subscribe to out Newsletter?</h1>
+                <h1 className='mb-3'>Subscribe to our Newsletter?</h1>
                 <form onSubmit={handleUpload}>
                     <div className="form-group mt-3">
                         <input type="text" className="form-control" name='name' placeholder="Name" required />

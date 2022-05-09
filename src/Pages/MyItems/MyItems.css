@@ -7,6 +7,8 @@
 @media only screen and (max-width:576px) {
     .my-items-container {
         grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        overflow: hidden;
     }
 
 }
@@ -16,5 +18,7 @@
 @media only screen and (min-width: 577px) and (max-width: 992px) {
     .my-items-container {
         grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        overflow: hidden;
     }
 }

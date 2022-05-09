@@ -18,7 +18,7 @@ const MyItems = () => {
     }, []);
 
     return (
-        <div className='my-items-container mt-5'>
+        <div className='my-items-container mt-5 mb-5'>
             {
                 myItems.map(item => <SingleManageInventoryItem key={item._id} item={item}></SingleManageInventoryItem>)
             }

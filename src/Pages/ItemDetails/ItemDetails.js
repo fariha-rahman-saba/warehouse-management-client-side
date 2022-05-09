@@ -48,15 +48,8 @@ const ItemDetails = () => {
             .then(result => {
                 toast('Item Delivered! Please Refresh');
             });
-
-        // document.getElementById('delivered-btn').addEventListener('click', function () {
-        //     const quantityValue = document.getElementById('quantityValue');
-        //     const newQuantityValue = parseInt(quantityValue) - 1;
-        //     quantityValue.innerHTML = newQuantityValue;
-        // });
     };
 
-    // Todo: update to database
     const handleRestock = (event) => {
 
         event.preventDefault();

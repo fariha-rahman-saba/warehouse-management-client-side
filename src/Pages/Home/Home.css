@@ -9,10 +9,15 @@
     margin: 30px;
 }
 
+/* .choose-us {
+    width: 50%;
+} */
+
 /* for mobile phones */
 @media only screen and (max-width:576px) {
     .home-inventory-items-container {
         grid-template-columns: repeat(1, 1fr);
+        margin: auto;
     }
 
 }

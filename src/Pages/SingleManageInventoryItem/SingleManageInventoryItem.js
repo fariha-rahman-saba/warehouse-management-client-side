@@ -7,9 +7,11 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const SingleManageInventoryItem = ({ item }) => {
-    const { _id, email, image, name, price, supplierName, quantity } = item;
+    const { _id, email, image, name, price, supplierName, quantity, sold } = item;
 
     const [user] = useAuthState(auth);
     var valid = false;
@@ -18,6 +20,12 @@ const SingleManageInventoryItem = ({ item }) => {
     if (user.email === email) {
         valid = true;
     }
+
+
+    const navigate = useNavigate();
+    const goToItemDetails = _id => {
+        navigate(`/inventory/${_id}`);
+    };
 
     const handleDelete = (id) => {
         const proceed = window.confirm("Confirm Delete?");
@@ -47,12 +55,14 @@ const SingleManageInventoryItem = ({ item }) => {
                         <p>Supplier: {supplierName}</p>
                         <p>Price: ${price}</p>
                         <p>Quantity: {quantity}</p>
+                        <p>Status: {sold ? "Sold" : "In Stock"}</p>
+                        <Button variant="secondary" className='mt-2 mb-3' onClick={() => goToItemDetails(_id)}>Update Stock</Button>
                     </div>
 
 
                     {
                         valid ?
-                            <div> className="delete-container"
+                            <div className="delete-container">
                                 <button onClick={() => handleDelete(_id)} className='delete-button'>
                                     <FontAwesomeIcon className='delete-icon text-dark' icon={faTrash}></FontAwesomeIcon>
                                 </button>
