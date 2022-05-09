@@ -10,7 +10,7 @@ import './ItemDetails.css';
 const ItemDetails = () => {
     const [user, loading, error] = useAuthState(auth);
     const { itemId } = useParams();
-    const url = `http://localhost:4000/items/${itemId}`;
+    const url = `https://mighty-beach-81550.herokuapp.com/items/${itemId}`;
 
     const [item, setItem] = useState({});
 
