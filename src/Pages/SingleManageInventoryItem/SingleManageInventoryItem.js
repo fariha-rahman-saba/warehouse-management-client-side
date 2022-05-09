@@ -4,6 +4,7 @@ import React from 'react';
 import './SingleManageInventoryItem.css';
 import useItems from '../../hooks/useItems';
 import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SingleManageInventoryItem = ({ item }) => {
     // const [items, setItems] = useItems();
@@ -12,26 +13,26 @@ const SingleManageInventoryItem = ({ item }) => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Confirm Delete?");
         if (proceed) {
-            const url = `https://mighty-beach-81550.herokuapp.com/items/${id}`;
+            // console.log('deleting user with id, ', id);
+            const url = `http://localhost:4000/items/${id}`;
             fetch(url, {
                 method: 'DELETE'
-            }).then(res => res.json())
+            })
+                .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        console.log("item deleted");
-                        // toast("Item deteted");
-                        // const remainingItems = items.filter(item => item._id !== id);
-                        // setItems(remainingItems);
+                        toast('Item Deleted!');
+
                     }
                 });
         }
     };
     return (
         <div className="inventory-container">
-            <div className='item'>
+            <div className='item-container'>
                 <img src={image} alt="" />
                 <div className='item-details-container'>
-                    <div className='item-details'>
+                    <div className='single-item-details'>
                         <p>{name}</p>
                         <p>Supplier: {supplierName}</p>
                         <p>Price: ${price}</p>

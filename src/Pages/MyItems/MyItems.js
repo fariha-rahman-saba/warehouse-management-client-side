@@ -8,7 +8,7 @@ const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
     const [myItems, setMyItems] = useState([]);
     const emailId = user.email;
-    const url = `https://mighty-beach-81550.herokuapp.com/user-items?email=${emailId}`;
+    const url = `http://localhost:4000/user-items?email=${emailId}`;
 
     useEffect(() => {
         fetch(url)
