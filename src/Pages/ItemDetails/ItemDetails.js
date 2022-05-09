@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
 import './ItemDetails.css';
 
 const ItemDetails = () => {
     const [user, loading, error] = useAuthState(auth);
     const { itemId } = useParams();
-    const url = `https://mighty-beach-81550.herokuapp.com/items/${itemId}`;
+    const url = `http://localhost:4000/items/${itemId}`;
 
     const [item, setItem] = useState({});
+
 
     useEffect(() => {
         fetch(url)
@@ -25,6 +28,7 @@ const ItemDetails = () => {
     };
 
     const handleDelivered = () => {
+
         const { email, image, name, short_desc, price, supplierName, sold } = item;
         var { quantity } = item;
         quantity = parseInt(quantity);
@@ -42,9 +46,14 @@ const ItemDetails = () => {
             },
         }).then(res => res.json())
             .then(result => {
-                console.log(result);
+                toast('Item Delivered! Please Refresh');
             });
 
+        // document.getElementById('delivered-btn').addEventListener('click', function () {
+        //     const quantityValue = document.getElementById('quantityValue');
+        //     const newQuantityValue = parseInt(quantityValue) - 1;
+        //     quantityValue.innerHTML = newQuantityValue;
+        // });
     };
 
     // Todo: update to database
@@ -73,7 +82,7 @@ const ItemDetails = () => {
             },
         }).then(res => res.json())
             .then(result => {
-                console.log(result);
+                toast('Item Restocked! Please Refresh');
                 event.target.reset();
             });
 
@@ -81,14 +90,17 @@ const ItemDetails = () => {
 
     return (
         <div className='item-details mx-auto'>
-            <img src={item.img} alt="" width="200px" height="130px" />
-            <h4 className='mt-3'>Item name: {item.name}</h4>
-            <p>Description: {item.short_desc}</p>
+            <img src={item.image} alt="" width="200px" height="200px" />
+            <h4 className='mt-3'>{item.name}</h4>
+            <p>{item.short_desc}</p>
             <h5>Price: ${item.price}</h5>
             <h5>Quantity: <span id='quantityValue'>{item.quantity}</span></h5>
             <h5>Supplier Name: {item.supplierName}</h5>
-            <h5>Sold: {item.sold ? "Sold" : "In Stock"}</h5>
-            <button type="submit" onClick={handleDelivered} className="btn btn-secondary mt-3 w-25">Delivered</button>
+            <h5>Status: {item.sold ? "Sold" : "In Stock"}</h5>
+            <button id='delivered-btn' type="submit" onClick={handleDelivered} className="btn btn-secondary mt-3 w-25">Delivered</button>
+            <ToastContainer></ToastContainer>
+
+            <hr className=' mt-5 w-50 mx-auto' />
 
             {/* Restock form */}
             <h3 className='mt-3 mb-3'>Restock the Item</h3>
@@ -98,6 +110,7 @@ const ItemDetails = () => {
 
                 </div>
                 <button type="submit" className="btn btn-secondary mt-3 mb-3 w-25">Restock</button>
+                <ToastContainer></ToastContainer>
                 <br />
                 <Button variant="warning" className='mb-5 w-25' onClick={() => goToManageInventory()}>Manage Inventory</Button>
 

@@ -5,10 +5,19 @@ import './SingleManageInventoryItem.css';
 import useItems from '../../hooks/useItems';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const SingleManageInventoryItem = ({ item }) => {
-    // const [items, setItems] = useItems();
-    const { _id, image, name, price, supplierName, quantity } = item;
+    const { _id, email, image, name, price, supplierName, quantity } = item;
+
+    const [user] = useAuthState(auth);
+    var valid = false;
+
+
+    if (user.email === email) {
+        valid = true;
+    }
 
     const handleDelete = (id) => {
         const proceed = window.confirm("Confirm Delete?");
@@ -21,8 +30,9 @@ const SingleManageInventoryItem = ({ item }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        toast('Item Deleted!');
-
+                        toast('Item Deleted! Please Refresh');
+                        // const remainingItems = items.filter(item => item._id !== id);
+                        // setItems(remainingItems);
                     }
                 });
         }
@@ -40,16 +50,22 @@ const SingleManageInventoryItem = ({ item }) => {
                     </div>
 
 
-                    <div className="delete-container">
-                        <button onClick={() => handleDelete(_id)} className='delete-button'>
-                            <FontAwesomeIcon className='delete-icon text-dark' icon={faTrash}></FontAwesomeIcon>
-                        </button>
-                    </div>
-                    <ToastContainer></ToastContainer>
+                    {
+                        valid ?
+                            <div> className="delete-container"
+                                <button onClick={() => handleDelete(_id)} className='delete-button'>
+                                    <FontAwesomeIcon className='delete-icon text-dark' icon={faTrash}></FontAwesomeIcon>
+                                </button>
+                                <ToastContainer></ToastContainer>
+                            </div>
+                            : <></>
+
+                    }
+
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 };
 
