@@ -22,3 +22,5 @@ A list of technologies used within the project:
 * In my items page we can see all the items added by the user. Here he/she can delete any item.
 * There is a page called subscribe where anyone can subscribe for newsletters.
 * In subscribe route anyone can subscribe for newsletter.
+* After creating an account user can add books, manage books, see their added books, delete books, manage inventory, update stock, deliver books etc.
+* User can subscribe for newsletters and only delete the book that was added by the user but he can see all the books added by other users as well.
